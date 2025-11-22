@@ -14,7 +14,6 @@ def load_messages():
         with open(filePath, 'r', encoding='utf-8') as f:
             return json.load(f) or []
     except (json.JSONDecodeError, OSError):
-        # If file is corrupt or unreadable, treat as empty list
         return []
 
 
