@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 
 def load_messages():
-    """Load messages list from the JSON file. Returns empty list if file missing or invalid."""
     if not os.path.exists(filePath):
         return []
     try:
