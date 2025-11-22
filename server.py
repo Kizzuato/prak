@@ -18,7 +18,6 @@ def load_messages():
 
 
 def save_messages(messages):
-    """Save messages list to the JSON file (pretty-printed)."""
     with open(filePath, 'w', encoding='utf-8') as f:
         json.dump(messages, f, ensure_ascii=False, indent=2)
 
@@ -37,7 +36,6 @@ def add_message():
         return jsonify({'error': 'Missing "text" field'}), 400
 
     messages = load_messages()
-    # compute next id reliably even if messages list isn't contiguous
     next_id = max((m.get('id', 0) for m in messages), default=0) + 1
     new_message = {
         'id': next_id,
